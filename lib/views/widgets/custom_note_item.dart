@@ -29,7 +29,7 @@ class NoteItem extends StatelessWidget {
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16.0, bottom: 16),
-                child: Text(
+                 child :  Text(
                   'Build your career with mohamed abdelwahid',
                   style: TextStyle(
                     // ignore: deprecated_member_use
