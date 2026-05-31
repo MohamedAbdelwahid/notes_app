@@ -4,7 +4,8 @@ import 'package:frist_project/views/widgets/add_note_bottom_sheet.dart';
 import 'package:frist_project/views/widgets/notes_view_body.dart';
 
 class NotesView extends StatelessWidget {
-  const NotesView({super.key});
+  const NotesView({super.key, required this.onLocaleToggle});
+  final VoidCallback onLocaleToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +13,7 @@ class NotesView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
@@ -21,9 +23,9 @@ class NotesView extends StatelessWidget {
             },
           );
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
-      body: const NotesViewBody(),
+      body: NotesViewBody(onLocaleToggle: onLocaleToggle),
     );
   }
 }

@@ -1,6 +1,6 @@
 {
-    "name": "frist_project",
-    "short_name": "frist_project",
+    "name": "note",
+    "short_name": "note",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

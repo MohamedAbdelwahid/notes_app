@@ -1,17 +1,10 @@
 import 'package:hive/hive.dart';
 
-part 'note_model.g.dart';
-
-@HiveType(typeId: 0)
 class NoteModel extends HiveObject {
-  @HiveField(0)
-  final String title;
-  @HiveField(1)
-  final String subTitle;
-  @HiveField(2)
-  final String date;
-  @HiveField(3)
-  final int color;
+  String title;
+  String subTitle;
+  String date;
+  int color;
 
   NoteModel({
     required this.title,
@@ -19,4 +12,27 @@ class NoteModel extends HiveObject {
     required this.date,
     required this.color,
   });
+}
+
+class NoteModelAdapter extends TypeAdapter<NoteModel> {
+  @override
+  final int typeId = 0;
+
+  @override
+  NoteModel read(BinaryReader reader) {
+    return NoteModel(
+      title: reader.readString(),
+      subTitle: reader.readString(),
+      date: reader.readString(),
+      color: reader.readInt(),
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, NoteModel obj) {
+    writer.writeString(obj.title);
+    writer.writeString(obj.subTitle);
+    writer.writeString(obj.date);
+    writer.writeInt(obj.color);
+  }
 }
